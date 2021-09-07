@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  iris:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports: 
+      - 51773
+      - 52773
+      - 53773

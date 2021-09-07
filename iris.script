@@ -1,0 +1,5 @@
+ZNSpace "%SYS"
+Do ##Class(Security.Users).UnExpireUserPasswords("*")
+ZNSpace "USER"
+Do $System.OBJ.LoadDir("/opt/irisapp/src","ck",,1)
+Halt
