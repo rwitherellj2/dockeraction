@@ -10,5 +10,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test action step
-        uses: ./.github/actions/ # Uses an action in the root directory
+        uses: ./.github/actions/test-action
         id: hello
