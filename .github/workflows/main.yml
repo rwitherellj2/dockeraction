@@ -10,7 +10,7 @@ jobs:
       - name: Build the docker-compose stack
         run: docker-compose up -d
       - name: Check environment
-        run: docker stats --no-stream
+        run: sleep 5; docker exec iris /usr/irissys/dev/Cloud/ICM/waitISC.sh; docker stats --no-stream
       #- name: Run tests (step 1) - start IRIS 
       #  run: docker exec iris iris start IRIS
       - name: Run tests (step 2) - run tests
