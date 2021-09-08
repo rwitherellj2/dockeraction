@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   iris:
+    container_name: iris
     build: 
       context: .
       dockerfile: Dockerfile

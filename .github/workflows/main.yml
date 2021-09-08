@@ -9,6 +9,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Build the docker-compose stack
         run: docker-compose up -d
+      - name: Run tests (step 1) - open bash
+        run: docker exec -it iris bash
+      - name: Run tests (step 2) - open iris session and run tests
+        run: iris session IRIS < test.script
       #- name: Test action step
       #  uses: ./.github/actions/test-action
       #  id: hello
