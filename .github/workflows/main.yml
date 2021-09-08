@@ -12,7 +12,7 @@ jobs:
       #- name: Run tests (step 1) - start IRIS 
       #  run: docker exec iris iris start IRIS
       - name: Run tests (step 2) - run tests
-        run: docker exec -t iris iris session IRIS < test.script
+        run: docker exec -t iris iris start IRIS && iris session IRIS < test.script
       #- name: Run tests (step 2) - open iris session and run tests
       #  run: iris session IRIS < test.script
       #- name: Test action step
