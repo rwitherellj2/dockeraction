@@ -7,4 +7,4 @@ COPY src src
 
 RUN iris start IRIS && iris session IRIS < iris.script && iris stop IRIS quietly
 
-ENTRYPOINT [ "/iris-main" ]
+#ENTRYPOINT [ "/iris-main" ]
