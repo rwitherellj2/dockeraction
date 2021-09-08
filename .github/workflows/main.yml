@@ -12,7 +12,7 @@ jobs:
       - name: Run image
         run: |
           docker run --init --rm -dp 52773:52773 --name iris-container iris-image
-          docker exec -t iris-container iris start IRIS && iris session IRIS < test.script && iris stop IRIS
+          docker exec -t iris-container iris start IRIS
       #    sleep 5
       #    docker stats --no-stream
       #    docker ps
