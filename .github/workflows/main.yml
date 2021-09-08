@@ -13,10 +13,8 @@ jobs:
         run: |
           docker run --init --rm -dp 52773:52773 --name iris-container iris-image
           sleep 5
-      - name: Check status
-        run: docker stats --no-stream
-      - name: Check running containers
-        run: docker ps
+          docker stats --no-stream
+          docker ps
       #docker exec iris-container /usr/irissys/dev/Cloud/ICM/waitISC.sh
       #- name: Build the docker-compose stack
       #  run: docker-compose up -d
