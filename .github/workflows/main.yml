@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build the docker-compose stack
-        run: docker-compose up -d -f ../../docker-compose.yml
+        run: docker-compose up -d
       #- name: Test action step
       #  uses: ./.github/actions/test-action
       #  id: hello
