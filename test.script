@@ -1,1 +1,2 @@
-Do ##Class(UnitTest.Test).Hello()
+echo "test"
+#Do ##Class(UnitTest.Test).Hello()
