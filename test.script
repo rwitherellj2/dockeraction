@@ -1,1 +1,2 @@
+iris session IRIS
 Do ##Class(UnitTest.Test).Hello()
