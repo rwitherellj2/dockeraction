@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      -name: Permissions update
+        run: chmod +x tests_entrypoint.sh 
       - name: Build the docker image
         run: |
           docker build -t iris-image:${GITHUB_SHA} .
@@ -15,5 +17,6 @@ jobs:
           docker run --rm -i \
             -w /opt/irisapp \
             -v `pwd`/tests:/opt/irisapp/tests \
-            --entrypoint /opt/irisapp/tests_entrypoint.sh \
+            -v `pwd`/.ci/tests_entrypoint.sh:/tests_entrypoint.sh \
+            --entrypoint /tests_entrypoint.sh \
             iris-image:${GITHUB_SHA}

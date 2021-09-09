@@ -6,9 +6,6 @@ WORKDIR /opt/irisapp
 
 RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} .
 
-COPY tests_entrypoint.sh tests_entrypoint.sh
-RUN chmod +x tests_entrypoint.sh 
-
 USER ${ISC_PACKAGE_MGRUSER}
 
 COPY iris.script iris.script
