@@ -12,7 +12,6 @@ RUN chmod +x tests_entrypoint.sh
 USER ${ISC_PACKAGE_MGRUSER}
 
 COPY iris.script iris.script
-COPY tests_entrypoint.sh tests_entrypoint.sh
 COPY src src
 
 RUN iris start IRIS && iris session IRIS < iris.script && iris stop IRIS quietly
