@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Permissions update
-        run: chmod +x tests_entrypoint.sh 
+        run: chmod +x `pwd`/.ci/tests_entrypoint.sh 
       - name: Build the docker image
         run: |
           docker build -t iris-image:${GITHUB_SHA} .
