@@ -5,10 +5,9 @@ TESTS=`pwd`/tests
 iris start $ISC_PACKAGE_INSTANCENAME quietly \
 
 /bin/echo -e '' \
-  "set ^UnitTestRoot=\"$TESTS\"\n" \
-  'do ##class(%UnitTest.Manager).RunTest()\n' \
+  "Do ##Class(UnitTest.Test).Hello()\n" \
   'halt\n' \
-| iris session $ISC_PACKAGE_INSTANCENAME -UCOFFEE | tee /tmp/tests.log
+| iris session $ISC_PACKAGE_INSTANCENAME -U USER | tee /tmp/tests.log
 
 iris stop $ISC_PACKAGE_INSTANCENAME quietly
 
