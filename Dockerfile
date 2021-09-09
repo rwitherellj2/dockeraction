@@ -1,8 +1,8 @@
 FROM store/intersystems/iris-community:2021.1.0.215.0
 
-WORKDIR /opt/irisapp
+RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp
 
-RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} .
+WORKDIR /opt/irisapp
 
 COPY iris.script iris.script
 COPY test.script test.script
