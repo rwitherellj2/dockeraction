@@ -8,8 +8,7 @@ ClassMethod Run()
   do ##class(%UnitTest.Manager).DebugRunTestCase(..%ClassName(1))
 }
 
-/// Description
-Method TestHello() As %Status
+Method TestHello()
 {
     Do $$$AssertTrue(1,"First test success")
     Return $$$OK
