@@ -9,11 +9,15 @@ jobs:
         uses: actions/checkout@v2
       - name: Build the docker image
         run: |
-          docker build --rm -t iris-image .
-          docker run -dp 52773:52773 --name iris-container iris-image
-          docker exec -t iris-container echo "test1"
-          docker exec -t iris-container iris start IRIS --quietly
-          docker exec -t iris-container  echo "test2"
+          docker build -t iris-image .
+      - name: Run the image
+        run: |
+          docker run --rm -i \
+            -w /opt/irisapp \
+            -v `pwd`/tests:/opt/irisapp/tests \
+            -v `pwd`/.ci/tests_entrypoint.sh:/tests_entrypoint.sh \
+            --entrypoint /tests_entrypoint.sh \
+            iris-image
       #- name: Run the image
       #  run: |
       #    docker run -dp 52773:52773 --name iris-container iris-image
