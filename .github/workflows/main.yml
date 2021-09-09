@@ -10,29 +10,10 @@ jobs:
       - name: Build the docker image
         run: |
           docker build -t iris-image:${GITHUB_SHA} .
-
       - name: Run the image
         run: |
-          docker run -dp 52773:52773 --name iris-container iris-image:${GITHUB_SHA}
-          docker exec -t iris-container iris start IRIS
-      #    sleep 5
-      #    docker stats --no-stream
-      #    docker ps
-      #docker exec iris-container /usr/irissys/dev/Cloud/ICM/waitISC.sh
-      #- name: Build the docker-compose stack
-      #  run: docker-compose up -d
-      #- name: Check environment
-      #  run: sleep 5; docker exec iris_container /usr/irissys/dev/Cloud/ICM/waitISC.sh; docker stats --no-stream
-      #- name: Run tests (step 1) - start IRIS 
-      #  run: docker exec iris_container iris start IRIS
-      #- name: Run tests (step 1) - run tests
-      #  run: echo "test"
-      #- name: Run tests (step 2) - run tests
-      #  run: docker exec -t iris_container iris start IRIS && iris session IRIS < test.script
-      #- name: Check environment
-      #  run: docker stats --no-stream
-      #- name: Run tests (step 2) - open iris session and run tests
-      #  run: iris session IRIS < test.script
-      #- name: Test action step
-      #  uses: ./.github/actions/test-action
-      #  id: hello
+          docker run --rm -i \
+            -w /opt/irisapp \
+            -v `pwd`/tests:/opt/irisapp/tests \
+            --entrypoint /opt/irisapp/tests_entrypoint.sh \
+            iris-image:${GITHUB_SHA}

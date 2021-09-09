@@ -1,10 +1,11 @@
 /// Description
-Class UnitTest.Test
+Class UnitTest.Test Extends %UnitTest.TestCase
 {
 
-ClassMethod Hello(name As %String = "world")
+Method TestHello() As %Status
 {
-        Write !,"Hello, "_name_"!"
+    Do $$$AssertTrue(1,"First test success")
+    Quit $$$OK
 }
 
 }
