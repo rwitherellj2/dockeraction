@@ -11,7 +11,7 @@ iris start $ISC_PACKAGE_INSTANCENAME quietly \
 
 iris stop $ISC_PACKAGE_INSTANCENAME quietly
 
-if ! grep -iq "All PASSED" /tmp/tests.log 
+if ! grep -iq "Hello, world!" /tmp/tests.log 
 then
   exit 1
 fi
