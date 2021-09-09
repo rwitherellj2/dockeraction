@@ -15,7 +15,7 @@ jobs:
           docker run --rm -i \
             -w /opt/irisapp \
             -v `pwd`/tests:/opt/irisapp/tests \
-            --entrypoint /tests_entrypoint.sh \
+            --entrypoint /opt/irisapp/tests_entrypoint.sh \
             iris-image:${GITHUB_SHA}
       #- name: Run the image
       #  run: |
