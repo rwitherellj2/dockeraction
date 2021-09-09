@@ -6,5 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Execute ObjectScript Quality Analysis
-      run: |
-        wget -O - https://raw.githubusercontent.com/litesolutions/objectscriptquality-jenkins-integration/master/iris-community-hook.sh | bash
+      run: wget https://raw.githubusercontent.com/litesolutions/objectscriptquality-jenkins-integration/master/iris-community-hook.sh && sh ./iris-community-hook.sh
