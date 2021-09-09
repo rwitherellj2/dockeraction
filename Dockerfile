@@ -6,6 +6,8 @@ WORKDIR /opt/irisapp
 
 RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} .
 
+USER ${ISC_PACKAGE_MGRUSER}
+
 COPY iris.script iris.script
 COPY test.script test.script
 COPY src src
