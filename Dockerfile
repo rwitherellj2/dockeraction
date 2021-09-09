@@ -15,5 +15,4 @@ COPY iris.script iris.script
 COPY src src
 
 RUN iris start IRIS && iris session IRIS < iris.script && iris stop IRIS quietly
-
-#ENTRYPOINT [ "/iris-main", "-a echo \"test\"" ]
+RUN rm ${ISC_PACKAGE_INSTALLDIR}/mgr/IRIS.WIJ && rm -f ${ISC_PACKAGE_INSTALLDIR}/mgr/journal/* && rm -f ${ISC_PACKAGE_INSTALLDIR}/mgr/iristemp/IRIS.DAT
