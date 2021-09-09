@@ -8,14 +8,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build the docker image
-        run: docker build -t iris-image:${GITHUB_SHA} .
+        run: |
+          docker build -t iris-image:${GITHUB_SHA} .
       - name: Run the image
         run: |
           docker run --rm -i \
             -w /opt/irisapp \
             -v `pwd`/tests:/opt/irisapp/tests \
-            -v `pwd`/.ci/tests_entrypoint.sh:/tests_entrypoint.sh \
-            --entrypoint /tests_entrypoint.sh \
+            --entrypoint tests_entrypoint.sh \
             iris-image:${GITHUB_SHA}
       #- name: Run the image
       #  run: |
