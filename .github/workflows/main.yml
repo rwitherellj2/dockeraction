@@ -3,14 +3,14 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: A test job
+    name: Unit Tests
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build the docker image
         run: |
           docker build -t iris-image:${GITHUB_SHA} .
-      - name: Run the image
+      - name: Run the image and execute tests
         run: |
           docker run --rm -i \
             -w /opt/irisapp \
