@@ -10,17 +10,11 @@ jobs:
       - name: Build the docker image
         run: |
           docker build -t iris-image:${GITHUB_SHA} .
+
       - name: Run the image
         run: |
-          docker run --rm -i \
-            -w /opt/irisapp \
-            -v `pwd`/tests:/opt/irisapp/tests \
-            --entrypoint /opt/irisapp/tests_entrypoint.sh \
-            iris-image:${GITHUB_SHA}
-      #- name: Run the image
-      #  run: |
-      #    docker run -dp 52773:52773 --name iris-container iris-image
-      #    docker exec -t iris-container iris start IRIS
+          docker run -dp 52773:52773 --name iris-container iris-image
+          docker exec -t iris-container iris start IRIS
       #    sleep 5
       #    docker stats --no-stream
       #    docker ps
