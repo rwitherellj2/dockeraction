@@ -1,8 +1,5 @@
-name: objectscriptquality
-on:
-  push:
-    branches:
-      - master
+on: [push]
+
 jobs:
   linux:
     name: Linux build
