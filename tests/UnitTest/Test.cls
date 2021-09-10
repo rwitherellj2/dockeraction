@@ -15,7 +15,8 @@ Method TestHello() As %Status
     Return $$$OK
 }
 
-Method TestSystem()
+/// Description
+Method TestSystem() As %Status
 {
     Do $$$AssertTrue(1,"System test success")
     Return $$$OK
