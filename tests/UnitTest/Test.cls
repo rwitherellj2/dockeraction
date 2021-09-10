@@ -11,7 +11,13 @@ ClassMethod Run()
 /// Description
 Method TestHello() As %Status
 {
-    Do $$$AssertTrue(1,"First test success")
+    Do $$$AssertTrue(1,"Hello test success")
+    Return $$$OK
+}
+
+Method TestSystem()
+{
+    Do $$$AssertTrue(1,"System test success")
     Return $$$OK
 }
 
